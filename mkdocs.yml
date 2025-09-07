@@ -1,0 +1,32 @@
+site_name: Master GeoPython
+site_url: https://geopython.rottengrapes.tech
+theme:
+  name: material
+  palette:
+    primary: requirements
+  # logo: assets/images/logo.png
+  icon:
+    logo: material/language-python
+  favicon: assets/images/logo.png
+  features:
+    - navigation.footer
+
+extra:
+  social:
+    - icon: fontawesome/brands/mastodon 
+      link: https://fosstodon.org/@squidfunk
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/squidfunk/
+
+copyright: Copyright &copy; 2020 - 2026 Rotten Grapes Private Limited
+
+plugins:
+  - search
+  - social
+  - tags
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
