@@ -1,4 +1,4 @@
-# Mastering GeoPython
+# Master GeoPython
 
 This repository contains the course content for [Master Geospatial Analysis using python](https://www.udemy.com/course/geospatial-analysis-python/?referralCode=600FEC03FD03B4A4226B), a comprehensive course designed to teach you the fundamentals and advanced concepts of geospatial programming using Python
 

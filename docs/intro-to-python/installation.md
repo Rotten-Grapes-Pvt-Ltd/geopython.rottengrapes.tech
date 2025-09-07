@@ -6,21 +6,21 @@ Whether you're a beginner stepping into programming or a data enthusiast diving 
 
 Let's explore steps to install Python on various Operating Systems. Let's start by downloading the latest package by either hovering on Downloads and downloading package or by visiting [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
-![Python Download Page](/assets/images/1.png)
+![Python Download Page](../assets/images/1.png)
 
 ### Installing python on Windows 
 Start by downloading latest .exe installer from [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/)
 Once downloaded, double click on it to open installer 
 
-![Python Installer](/assets/images/2.png)
+![Python Installer](../assets/images/2.png)
 
 After checking both boxes, click on Customize Installation and checkmark everything
 
-![Python Customize Installation](/assets/images/3.png)
+![Python Customize Installation](../assets/images/3.png)
 
 click on Next , then checkmark as per following screenshots
 
-![Python Advanced Options](/assets/images/4.png)
+![Python Advanced Options](../assets/images/4.png)
 
 and then click on Install. After installation is done, you can open Command Prompt and confirm if installation is done by typing
 
@@ -30,7 +30,7 @@ python --version
 
 and if you see following result, it means your installation is done ! 
 
-![Python Version Check](/assets/images/5.png)
+![Python Version Check](../assets/images/5.png)
 
 ### Installing python on Ubuntu 
 
@@ -42,7 +42,7 @@ sudo apt install python3
 
 enter your password.
 
-![Ubuntu Install Python](/assets/images/6.png)
+![Ubuntu Install Python](../assets/images/6.png)
 
 after installing python3, we also need to install pip which manages the packages in python. To install pip, execute following command
 
@@ -56,17 +56,17 @@ You can check if the installations are done correctly by typing
 python3 --version #to check python installation
 pip3 --version # to check pip installation
 ```
-![Ubuntu Version Check](/assets/images/7.png)
+![Ubuntu Version Check](../assets/images/7.png)
 
 ### Installing python on MacOS
 
 Installing Python on MacOS X is similar to Windows, you can download the installer and following the commands 
 
-![Python Download Page](/assets/images/8.png)
+![Python Download Page](../assets/images/8.png)
 
 once the installation is done, check on terminal
 
-![MacOS Version Check](/assets/images/9.png)
+![MacOS Version Check](../assets/images/9.png)
 
 ## Hosted Python Environments (No Installation Required!)
 
@@ -86,7 +86,7 @@ If you don’t want to install anything yet, you can run Python in the cloud. Id
 
 ### Jupyter Notebook (via Binder)
 
-- URL: [mybinder.org](mybinder.org)
+- URL: [mybinder.org](www.mybinder.org)
 - Turn any GitHub repo into an executable notebook
 
 

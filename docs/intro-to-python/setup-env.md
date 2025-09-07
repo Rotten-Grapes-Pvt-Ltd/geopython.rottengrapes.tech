@@ -30,7 +30,7 @@ source myenv/bin/activate
 
 After activating the virtual environment, you will see the name of the virtual environment in your terminal prompt. This indicates that you are now working inside the virtual environment.
 
-![Virtual Environment Activated](/assets/images/10.png)
+![Virtual Environment Activated](../assets/images/10.png)
 
 ### Deactivating Virtual Environment
 
@@ -42,7 +42,7 @@ deactivate
 
 you can confirm this by checking the terminal prompt, it should not have the name of the virtual environment anymore.
 
-![Virtual Environment Deactivated](/assets/images/11.png)
+![Virtual Environment Deactivated](../assets/images/11.png)
 
 ## `Conda` Virtual Environment
 
