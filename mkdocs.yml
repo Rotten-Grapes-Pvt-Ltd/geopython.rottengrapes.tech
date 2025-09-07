@@ -11,6 +11,16 @@ theme:
   features:
     - navigation.footer
     - content.code.copy
+    - navigation.tracking
+    - toc.integrate
+    - navigation.top
+
+nav:
+  - index.md
+  - Introduction:
+    - intro-to-python/installation.md
+    - Setup Python Environment: intro-to-python/setup-env.md
+    - Python Packages: intro-to-python/intro-to-packages.md
 
 extra:
   social:

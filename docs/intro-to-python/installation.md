@@ -74,19 +74,19 @@ If you don’t want to install anything yet, you can run Python in the cloud. Id
 
 ### Google Colab
 
-- URL: [colab.research.google.com](colab.research.google.com)
+- URL: [colab.research.google.com](https://colab.research.google.com)
 - Free, cloud-based Jupyter notebooks with access to GPU
 - Great for data science and ML
 
 ### Replit
 
-- URL: [replit.com](replit.com)
+- URL: [replit.com](https://replit.com)
 - Supports Python and many other languages
 - Includes a file manager, debugger, and terminal
 
 ### Jupyter Notebook (via Binder)
 
-- URL: [mybinder.org](www.mybinder.org)
+- URL: [mybinder.org](https://www.mybinder.org)
 - Turn any GitHub repo into an executable notebook
 
 
