@@ -1,17 +1,8 @@
-# Welcome to MkDocs
+# Mastering GeoPython
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+This repository contains the course content for [Master Geospatial Analysis using python](https://www.udemy.com/course/geospatial-analysis-python/?referralCode=600FEC03FD03B4A4226B), a comprehensive course designed to teach you the fundamentals and advanced concepts of geospatial programming using Python
 
-## Commands
+## Course Overview
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+This course is live on Udemy and covers a wide range of topics from installation and setup to advanced geospatial analysis techniques. The course is structured to provide a hands-on learning experience, with practical examples and real-world applications.
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
