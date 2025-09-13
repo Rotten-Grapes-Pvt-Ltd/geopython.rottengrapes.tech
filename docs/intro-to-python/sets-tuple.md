@@ -139,7 +139,7 @@ print(fruits.isdisjoint({1, 2, 3}))     # True - no common elements
 - `issuperset()` checks if the current set contains all elements of another set
 - `isdisjoint()` returns `True` if the sets have no common elements
 
----
+
 
 ## Tuples
 
@@ -266,7 +266,7 @@ first, *rest = data             # first=1, rest=[2, 3, 4, 5]
 ```
  The `*` operator collects multiple elements into a list. This allows flexible unpacking when you don't know exactly how many elements you'll have.
 
----
+
 
 ## Key Differences
 
@@ -279,7 +279,7 @@ first, *rest = data             # first=1, rest=[2, 3, 4, 5]
 | **Use Case** | Unique collections, math operations | Coordinates, fixed data, multiple return values |
 | **Performance** | Fast membership testing | Fast access by index |
 
----
+
 
 ## Common Use Cases
 

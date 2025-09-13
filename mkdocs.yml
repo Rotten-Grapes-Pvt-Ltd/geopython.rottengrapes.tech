@@ -12,8 +12,7 @@ theme:
     - navigation.footer
     - content.code.copy
     - navigation.tracking
-    - toc.integrate
-    - navigation.top
+
 
 nav:
   - index.md
@@ -21,10 +20,21 @@ nav:
     - intro-to-python/installation.md
     - Setup Python Environment: intro-to-python/setup-env.md
     - Python Packages: intro-to-python/intro-to-packages.md
-    - Variables: intro-to-python/variables.md
+    - Set Variables: intro-to-python/variables.md
+    - Making List : intro-to-python/list.md
     - Sets and Tuple : intro-to-python/sets-tuple.md
-    - Dictionary : intro-to-python/dictionary.md
-
+    - Making Dictionary : intro-to-python/dictionary.md
+    - Loop through data : intro-to-python/loops.md
+    - Creating Conditions : intro-to-python/conditions.md
+    - Creating Functions : intro-to-python/functions.md
+    - Using Modules : intro-to-python/modules.md
+    - Debugging in Python : intro-to-python/debugging.md
+  - Advance Python:
+    - Introduction to Numpy : advance-python/numpy_intro.md
+    - List in Numpy : advance-python/numpy_creating_list.md
+    - Indexing in Numpy : advance-python/numpy_indexing.md
+    - Numpy reshaping : advance-python/numpy_reshaping.md
+    - Numpy Split : advance-python/numpy_split.md
 extra:
   social:
     - icon: fontawesome/brands/mastodon 

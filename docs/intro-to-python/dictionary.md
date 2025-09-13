@@ -26,7 +26,7 @@ person = dict(name="Bob", age=25, city="New York")
 
 **Explanation:** Dictionary keys must be immutable (strings, numbers, tuples) and unique. If you use the same key twice, the second value overwrites the first. Values can be any data type and can be duplicated.
 
----
+
 
 ## Accessing Dictionary Elements
 
@@ -50,7 +50,7 @@ print(student.get("height", "Not specified"))  # "Not specified" - custom defaul
 ```
 **Explanation:** The `get()` method is safer than square brackets because it returns `None` (or a default value) instead of raising an error when a key doesn't exist.
 
----
+
 
 ## Modifying Dictionaries
 
@@ -122,7 +122,7 @@ print(student)                  # {} - empty dictionary
 ```
 **Explanation:** The `clear()` method removes all elements from the dictionary, leaving it empty but not deleting the dictionary variable itself.
 
----
+
 
 ## Dictionary Methods for Information
 
@@ -173,7 +173,7 @@ print(len(student))             # 3 - number of key-value pairs
 ```
 **Explanation:** The `len()` function returns the number of key-value pairs in the dictionary.
 
----
+
 
 ## Dictionary Operations and Methods
 
@@ -225,7 +225,7 @@ long_keys = {key: value for key, value in numbers.items() if len(key) > 1}
 ```
 **Explanation:** You can add conditions to filter which items are included in the new dictionary. The condition comes after the `for` clause.
 
----
+
 
 ## Working with Nested Dictionaries
 
@@ -262,7 +262,7 @@ students["bob"] = {"age": 22, "grades": {"math": 78}}
 ```
 **Explanation:** You can add or modify nested dictionary values using multiple levels of square bracket notation.
 
----
+
 
 ## Dictionary Performance and Use Cases
 
@@ -286,7 +286,7 @@ student_dict = {"name": "Alice", "age": 20, "grade": "A"}  # More memory but mor
 ```
 **Explanation:** Dictionaries use more memory than lists because they store keys along with values and maintain a hash table structure. However, they provide much faster key-based access.
 
----
+
 
 ## Common Use Cases and Patterns
 
@@ -373,7 +373,7 @@ even_squares = {key: value**2 for key, value in numbers.items() if value % 2 == 
 # {"b": 4, "d": 16}
 ```
 
----
+
 
 ## Best Practices
 
@@ -401,12 +401,12 @@ even_squares = {key: value**2 for key, value in numbers.items() if value % 2 == 
 4. **Consider defaultdict for complex grouping:** For advanced use cases (not covered here)
 5. **Use dictionary comprehensions:** They're more readable than building dictionaries with loops
 
----
+
 
 ## Quick Reference Summary
 
 | Operation | Syntax | Description |
-|-----------|--------|-------------|
+|-----|-----|-----|
 | **Create** | `{"key": "value"}` | Create dictionary with initial data |
 | **Access** | `dict[key]` or `dict.get(key)` | Get value by key |
 | **Add/Update** | `dict[key] = value` | Set key to value |
