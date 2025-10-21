@@ -36,7 +36,7 @@ if temperature > 25:
     print("It's a warm day")
     print("Consider wearing light clothes")
 ```
-**Explanation:** The condition after `if` must evaluate to a boolean value (`True` or `False`). If `True`, the indented code block executes. Indentation is crucial in Python - it defines which code belongs to the if statement.
+ The condition after `if` must evaluate to a boolean value (`True` or `False`). If `True`, the indented code block executes. Indentation is crucial in Python - it defines which code belongs to the if statement.
 
 **Working with variables:**
 ```python
@@ -56,7 +56,7 @@ items_in_cart = 5
 if items_in_cart > 0:
     print(f"You have {items_in_cart} items in your cart")
 ```
-**Explanation:** Conditions can check variable values, compare strings, test boolean variables, or evaluate any expression that returns `True` or `False`.
+ Conditions can check variable values, compare strings, test boolean variables, or evaluate any expression that returns `True` or `False`.
 
 
 
@@ -97,7 +97,7 @@ if number % 2 == 0:
 else:
     print(f"{number} is odd")
 ```
-**Explanation:** Exactly one of the two blocks will execute - either the `if` block (when condition is `True`) or the `else` block (when condition is `False`).
+ Exactly one of the two blocks will execute - either the `if` block (when condition is `True`) or the `else` block (when condition is `False`).
 
 **User input validation:**
 ```python
@@ -114,7 +114,7 @@ if len(password) >= 8:
 else:
     print("Password must be at least 8 characters long")
 ```
-**Explanation:** If-else is perfect for validation scenarios where you need to handle both valid and invalid cases.
+ If-else is perfect for validation scenarios where you need to handle both valid and invalid cases.
 
 
 
@@ -159,7 +159,7 @@ else:
 
 print(f"Your grade is: {grade}")
 ```
-**Explanation:** Conditions are checked in order from top to bottom. Once a condition is `True`, its code block executes and the remaining conditions are skipped.
+ Conditions are checked in order from top to bottom. Once a condition is `True`, its code block executes and the remaining conditions are skipped.
 
 **Weather responses:**
 ```python
@@ -182,7 +182,7 @@ else:
 
 print(f"Recommended clothing: {clothing}")
 ```
-**Explanation:** Each `elif` provides an additional condition to check. You can have as many `elif` statements as needed.
+ Each `elif` provides an additional condition to check. You can have as many `elif` statements as needed.
 
 **User menu system:**
 ```python
@@ -203,7 +203,7 @@ elif choice == "4":
 else:
     print("Invalid choice. Please enter 1, 2, 3, or 4.")
 ```
-**Explanation:** Menu systems commonly use if-elif-else to handle different user choices with a default case for invalid input.
+ Menu systems commonly use if-elif-else to handle different user choices with a default case for invalid input.
 
 
 
@@ -241,7 +241,7 @@ print(b > a)        # True
 print(a >= b)       # False
 print(a >= 10)      # True
 ```
-**Explanation:** Comparison operators compare two values and return a boolean result. Use `==` for equality testing (not `=` which is assignment).
+ Comparison operators compare two values and return a boolean result. Use `==` for equality testing (not `=` which is assignment).
 
 ### Comparing Different Data Types
 
@@ -270,7 +270,7 @@ if name1.lower() == name3.lower():
 if name1 < name2:
     print(f"{name1} comes before {name2} alphabetically")
 ```
-**Explanation:** String comparisons are case-sensitive by default. Use `.lower()` or `.upper()` methods for case-insensitive comparisons.
+ String comparisons are case-sensitive by default. Use `.lower()` or `.upper()` methods for case-insensitive comparisons.
 
 **List and other comparisons:**
 ```python
@@ -298,7 +298,7 @@ if len(my_list) == 0:
 if not my_list:
     print("List is empty")
 ```
-**Explanation:** You can compare lists element by element, check lengths, or test for emptiness using various approaches.
+ You can compare lists element by element, check lengths, or test for emptiness using various approaches.
 
 
 
@@ -335,7 +335,7 @@ elif temperature > 20 and is_sunny:
 else:
     print("Not ideal outdoor weather")
 ```
-**Explanation:** The `and` operator returns `True` only when all conditions are `True`. If any condition is `False`, the entire expression is `False`.
+ The `and` operator returns `True` only when all conditions are `True`. If any condition is `False`, the entire expression is `False`.
 
 ### Or Operator
 
@@ -363,7 +363,7 @@ if has_phone or has_email or has_address:
 else:
     print("We need at least one contact method")
 ```
-**Explanation:** The `or` operator returns `True` if any condition is `True`. It only returns `False` when all conditions are `False`.
+ The `or` operator returns `True` if any condition is `True`. It only returns `False` when all conditions are `False`.
 
 ### Not Operator
 
@@ -389,7 +389,7 @@ is_not_admin = False
 if not is_not_admin:  # Confusing - better to use positive logic
     print("User is admin")
 ```
-**Explanation:** The `not` operator flips `True` to `False` and `False` to `True`. It's useful for checking negative conditions.
+ The `not` operator flips `True` to `False` and `False` to `True`. It's useful for checking negative conditions.
 
 ### Combining Logical Operators
 
@@ -427,7 +427,7 @@ if (username and password) and (two_factor_enabled or trusted_device):
 else:
     print("Additional verification required")
 ```
-**Explanation:** Use parentheses to control the order of evaluation. `and` has higher precedence than `or`, but explicit parentheses make intentions clearer.
+ Use parentheses to control the order of evaluation. `and` has higher precedence than `or`, but explicit parentheses make intentions clearer.
 
 
 
@@ -468,7 +468,7 @@ if items_in_cart:
 else:
     print("Cart is empty")  # This prints
 ```
-**Explanation:** These values are considered "falsy" and evaluate to `False` in boolean contexts. This allows for concise checks.
+ These values are considered "falsy" and evaluate to `False` in boolean contexts. This allows for concise checks.
 
 ### Truthy Values
 
@@ -499,7 +499,7 @@ numbers = [1, 2, 3, 4, 5]
 if numbers:
     print(f"Processing {len(numbers)} numbers")  # This prints
 ```
-**Explanation:** Any value that isn't falsy is considered "truthy" and evaluates to `True` in boolean contexts.
+ Any value that isn't falsy is considered "truthy" and evaluates to `True` in boolean contexts.
 
 ### Using Truthiness Effectively
 
@@ -528,7 +528,7 @@ def get_search_results():
     # Placeholder function
     return ["result1", "result2"]
 ```
-**Explanation:** Using truthiness makes code more concise and readable. The `or` operator can provide default values when the first value is falsy.
+ Using truthiness makes code more concise and readable. The `or` operator can provide default values when the first value is falsy.
 
 
 
@@ -557,7 +557,7 @@ if age >= 18:
 else:
     print("You are too young to drive")
 ```
-**Explanation:** Nested conditions allow you to check additional conditions only when outer conditions are met. Each level of nesting adds another layer of indentation.
+ Nested conditions allow you to check additional conditions only when outer conditions are met. Each level of nesting adds another layer of indentation.
 
 ### Complex Decision Trees
 
@@ -590,7 +590,7 @@ if username:
 else:
     print("Username is required")
 ```
-**Explanation:** Nested conditions create decision trees where each level depends on the previous level's outcome.
+ Nested conditions create decision trees where each level depends on the previous level's outcome.
 
 ### Avoiding Deep Nesting
 
@@ -618,7 +618,7 @@ def check_access(username, password, is_active, attempts):
 result = check_access("admin", "correct123", True, 1)
 print(result)
 ```
-**Explanation:** Early returns can make deeply nested conditions more readable by handling error cases first.
+ Early returns can make deeply nested conditions more readable by handling error cases first.
 
 **Using logical operators instead of nesting:**
 ```python
@@ -651,7 +651,7 @@ else:
     if not car_is_working:
         print("- Car needs repair")
 ```
-**Explanation:** Logical operators can often replace nested conditions, making code more readable and maintainable.
+ Logical operators can often replace nested conditions, making code more readable and maintainable.
 
 
 
@@ -688,7 +688,7 @@ if temperature > 25:
 else:
     clothing = "pants"
 ```
-**Explanation:** The ternary operator evaluates the condition and returns the first value if `True`, otherwise the second value. It's a shorthand for simple if-else assignments.
+ The ternary operator evaluates the condition and returns the first value if `True`, otherwise the second value. It's a shorthand for simple if-else assignments.
 
 ### Ternary with Function Calls
 
@@ -706,7 +706,7 @@ score = 95
 grade = "A" if score >= 90 else "B" if score >= 80 else "C" if score >= 70 else "F"
 print(f"Grade: {grade}")
 ```
-**Explanation:** Ternary operators can call functions and be chained, but chaining reduces readability and should be used sparingly.
+ Ternary operators can call functions and be chained, but chaining reduces readability and should be used sparingly.
 
 ### When to Use Ternary
 
@@ -746,7 +746,7 @@ elif score >= 70:
 else:
     result = "Poor"
 ```
-**Explanation:** Use ternary operators for simple conditions. For complex logic, regular if-elif-else statements are more readable.
+ Use ternary operators for simple conditions. For complex logic, regular if-elif-else statements are more readable.
 
 
 
@@ -790,7 +790,7 @@ elif is_long_enough:
 else:
     print("Password must be at least 8 characters")
 ```
-**Explanation:** Layer validation checks from basic to specific, providing helpful feedback for each failure case.
+ Layer validation checks from basic to specific, providing helpful feedback for each failure case.
 
 ### Error Handling Patterns
 
@@ -826,7 +826,7 @@ if divisor != 0:
 else:
     print("Cannot divide by zero!")
 ```
-**Explanation:** Check for error conditions before attempting operations that might fail.
+ Check for error conditions before attempting operations that might fail.
 
 ### Configuration and Settings
 
@@ -876,7 +876,7 @@ print(f"Database: {database_url}")
 print(f"Log level: {log_level}")
 print(f"Cache enabled: {cache_enabled}")
 ```
-**Explanation:** Use conditions to adapt program behavior based on configuration settings or environment variables.
+ Use conditions to adapt program behavior based on configuration settings or environment variables.
 
 
 
@@ -908,7 +908,7 @@ def apply_premium_discount():
 def apply_vip_discount():
     print("25% discount applied")
 ```
-**Explanation:** Python evaluates conditions from top to bottom, so put the most likely conditions first for better performance.
+ Python evaluates conditions from top to bottom, so put the most likely conditions first for better performance.
 
 **Short-circuit evaluation:**
 ```python
@@ -928,7 +928,7 @@ if quick_check() and expensive_check():
 if quick_check() or expensive_check():
     print("At least one check passed")
 ```
-**Explanation:** Python uses short-circuit evaluation - it stops checking conditions as soon as the result is determined.
+ Python uses short-circuit evaluation - it stops checking conditions as soon as the result is determined.
 
 ### Avoiding Common Mistakes
 
@@ -974,7 +974,7 @@ if not is_active:
 if is_active == False:
     print("Inactive")
 ```
-**Explanation:** Don't compare boolean variables to `True` or `False` explicitly - just use the variable directly or with `not`.
+ Don't compare boolean variables to `True` or `False` explicitly - just use the variable directly or with `not`.
 
 
 

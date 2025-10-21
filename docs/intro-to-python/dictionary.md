@@ -24,7 +24,7 @@ letter_dict = dict(pairs)       # {"a": 1, "b": 2, "c": 3}
 person = dict(name="Bob", age=25, city="New York")
 ```
 
-**Explanation:** Dictionary keys must be immutable (strings, numbers, tuples) and unique. If you use the same key twice, the second value overwrites the first. Values can be any data type and can be duplicated.
+ Dictionary keys must be immutable (strings, numbers, tuples) and unique. If you use the same key twice, the second value overwrites the first. Values can be any data type and can be duplicated.
 
 
 
@@ -39,7 +39,7 @@ print(student["name"])          # "Alice" - direct key access
 print(student["age"])           # 20
 # print(student["height"])      # KeyError - key doesn't exist
 ```
-**Explanation:** Square bracket notation gives you direct access to values using their keys. If the key doesn't exist, Python raises a KeyError.
+ Square bracket notation gives you direct access to values using their keys. If the key doesn't exist, Python raises a KeyError.
 
 **Using get() method:**
 ```python
@@ -48,7 +48,7 @@ print(student.get("name"))      # "Alice" - same as student["name"]
 print(student.get("height"))    # None - key doesn't exist, returns None
 print(student.get("height", "Not specified"))  # "Not specified" - custom default
 ```
-**Explanation:** The `get()` method is safer than square brackets because it returns `None` (or a default value) instead of raising an error when a key doesn't exist.
+ The `get()` method is safer than square brackets because it returns `None` (or a default value) instead of raising an error when a key doesn't exist.
 
 
 
@@ -63,7 +63,7 @@ student["grade"] = "A"          # Add new key-value pair
 student["age"] = 21             # Update existing value
 print(student)                  # {"name": "Alice", "age": 21, "grade": "A"}
 ```
-**Explanation:** You can add new keys or update existing ones using square bracket assignment. If the key exists, its value is updated; if not, a new key-value pair is created.
+ You can add new keys or update existing ones using square bracket assignment. If the key exists, its value is updated; if not, a new key-value pair is created.
 
 **update() method:**
 ```python
@@ -72,7 +72,7 @@ student.update({"grade": "A", "major": "Computer Science"})  # Add multiple from
 student.update([("gpa", 3.8), ("year", 2)])                # Add from list of tuples
 student.update(credits=120, status="active")                # Add using keyword arguments
 ```
-**Explanation:** The `update()` method can add multiple key-value pairs at once. It accepts dictionaries, lists of tuples, or keyword arguments. Existing keys get updated, new keys get added.
+ The `update()` method can add multiple key-value pairs at once. It accepts dictionaries, lists of tuples, or keyword arguments. Existing keys get updated, new keys get added.
 
 **setdefault() method:**
 ```python
@@ -81,7 +81,7 @@ grade = student.setdefault("grade", "B")    # Returns "B" and adds "grade": "B"
 age = student.setdefault("age", 25)         # Returns 20, doesn't change existing value
 print(student)                              # {"name": "Alice", "age": 20, "grade": "B"}
 ```
-**Explanation:** `setdefault()` adds a key with a default value only if the key doesn't already exist. It returns the existing value if the key is present, or the new default value if it's not.
+ `setdefault()` adds a key with a default value only if the key doesn't already exist. It returns the existing value if the key is present, or the new default value if it's not.
 
 ### Removing Elements
 
@@ -92,7 +92,7 @@ del student["grade"]            # Remove specific key-value pair
 # del student["height"]         # KeyError - key doesn't exist
 print(student)                  # {"name": "Alice", "age": 20, "major": "CS"}
 ```
-**Explanation:** The `del` statement permanently removes a key-value pair from the dictionary. If the key doesn't exist, it raises a KeyError.
+ The `del` statement permanently removes a key-value pair from the dictionary. If the key doesn't exist, it raises a KeyError.
 
 **pop() method:**
 ```python
@@ -101,7 +101,7 @@ removed_grade = student.pop("grade")        # Returns "A" and removes the key
 missing = student.pop("height", "Unknown")  # Returns "Unknown" (default), no error
 # student.pop("height")                     # KeyError - no default provided
 ```
-**Explanation:** The `pop()` method removes a key and returns its value. You can provide a default value to return if the key doesn't exist, preventing KeyError.
+ The `pop()` method removes a key and returns its value. You can provide a default value to return if the key doesn't exist, preventing KeyError.
 
 **popitem() method:**
 ```python
@@ -112,7 +112,7 @@ print(student)                  # {"name": "Alice", "age": 20}
 empty_dict = {}
 # empty_dict.popitem()          # KeyError - can't pop from empty dictionary
 ```
-**Explanation:** The `popitem()` method removes and returns the last inserted key-value pair as a tuple. In older Python versions (<3.7), it removed an arbitrary item. Raises KeyError on empty dictionary.
+ The `popitem()` method removes and returns the last inserted key-value pair as a tuple. In older Python versions (<3.7), it removed an arbitrary item. Raises KeyError on empty dictionary.
 
 **clear() method:**
 ```python
@@ -120,7 +120,7 @@ student = {"name": "Alice", "age": 20, "grade": "A"}
 student.clear()                 # Remove all key-value pairs
 print(student)                  # {} - empty dictionary
 ```
-**Explanation:** The `clear()` method removes all elements from the dictionary, leaving it empty but not deleting the dictionary variable itself.
+ The `clear()` method removes all elements from the dictionary, leaving it empty but not deleting the dictionary variable itself.
 
 
 
@@ -134,7 +134,7 @@ student = {"name": "Alice", "age": 20, "grade": "A"}
 all_keys = student.keys()       # dict_keys(['name', 'age', 'grade'])
 key_list = list(student.keys()) # ['name', 'age', 'grade'] - convert to list
 ```
-**Explanation:** The `keys()` method returns a view of all dictionary keys. It's not a list, but you can convert it to a list or iterate over it. The view updates automatically if the dictionary changes.
+ The `keys()` method returns a view of all dictionary keys. It's not a list, but you can convert it to a list or iterate over it. The view updates automatically if the dictionary changes.
 
 **values() method:**
 ```python
@@ -142,7 +142,7 @@ student = {"name": "Alice", "age": 20, "grade": "A"}
 all_values = student.values()   # dict_values(['Alice', 20, 'A'])
 value_list = list(student.values())  # ['Alice', 20, 'A'] - convert to list
 ```
-**Explanation:** The `values()` method returns a view of all dictionary values. Like keys(), it returns a view object that reflects changes to the original dictionary.
+ The `values()` method returns a view of all dictionary values. Like keys(), it returns a view object that reflects changes to the original dictionary.
 
 **items() method:**
 ```python
@@ -150,7 +150,7 @@ student = {"name": "Alice", "age": 20, "grade": "A"}
 all_items = student.items()     # dict_items([('name', 'Alice'), ('age', 20), ('grade', 'A')])
 item_list = list(student.items())    # [('name', 'Alice'), ('age', 20), ('grade', 'A')]
 ```
-**Explanation:** The `items()` method returns a view of all key-value pairs as tuples. This is particularly useful when you need both keys and values together.
+ The `items()` method returns a view of all key-value pairs as tuples. This is particularly useful when you need both keys and values together.
 
 ### Checking Dictionary Contents
 
@@ -164,14 +164,14 @@ print("height" in student)      # False - key doesn't exist
 # Check if value exists (slower operation)
 print("Alice" in student.values())     # True - checks values
 ```
-**Explanation:** The `in` operator checks if a key exists in the dictionary (not values). To check for values, use `in` with the `values()` method, but this is slower than key checking.
+ The `in` operator checks if a key exists in the dictionary (not values). To check for values, use `in` with the `values()` method, but this is slower than key checking.
 
 **Length:**
 ```python
 student = {"name": "Alice", "age": 20, "grade": "A"}
 print(len(student))             # 3 - number of key-value pairs
 ```
-**Explanation:** The `len()` function returns the number of key-value pairs in the dictionary.
+ The `len()` function returns the number of key-value pairs in the dictionary.
 
 
 
@@ -190,7 +190,7 @@ shallow_copy["scores"].append(95)       # Changes both (shared list object)
 print(original)     # {"name": "Alice", "scores": [85, 92, 78, 95]}
 print(shallow_copy) # {"name": "Bob", "scores": [85, 92, 78, 95]}
 ```
-**Explanation:** The `copy()` method creates a shallow copy. Changes to immutable values (strings, numbers) only affect the copy, but changes to mutable objects (lists, dictionaries) affect both copies because they share the same object reference.
+ The `copy()` method creates a shallow copy. Changes to immutable values (strings, numbers) only affect the copy, but changes to mutable objects (lists, dictionaries) affect both copies because they share the same object reference.
 
 **Using dict() constructor:**
 ```python
@@ -198,7 +198,7 @@ original = {"a": 1, "b": 2, "c": 3}
 copy_dict = dict(original)      # Creates shallow copy
 another_copy = {**original}     # Dictionary unpacking - also shallow copy
 ```
-**Explanation:** Both `dict()` constructor and dictionary unpacking `{**dict}` create shallow copies of the original dictionary.
+ Both `dict()` constructor and dictionary unpacking `{**dict}` create shallow copies of the original dictionary.
 
 ### Dictionary Comprehensions
 
@@ -212,7 +212,7 @@ student = {"name": "alice", "city": "new york", "major": "cs"}
 uppercase = {key: value.upper() for key, value in student.items()}
 # {"name": "ALICE", "city": "NEW YORK", "major": "CS"}
 ```
-**Explanation:** Dictionary comprehensions create new dictionaries using a concise syntax. The format is `{key_expression: value_expression for item in iterable}`.
+ Dictionary comprehensions create new dictionaries using a concise syntax. The format is `{key_expression: value_expression for item in iterable}`.
 
 **Dictionary comprehension with conditions:**
 ```python
@@ -223,7 +223,7 @@ even_only = {key: value for key, value in numbers.items() if value % 2 == 0}
 # Filter by key
 long_keys = {key: value for key, value in numbers.items() if len(key) > 1}
 ```
-**Explanation:** You can add conditions to filter which items are included in the new dictionary. The condition comes after the `for` clause.
+ You can add conditions to filter which items are included in the new dictionary. The condition comes after the `for` clause.
 
 
 
@@ -244,7 +244,7 @@ alice_math = students["alice"]["grades"]["math"]        # 85
 # Safe access with get()
 charlie_age = students.get("charlie", {}).get("age", "Unknown")  # "Unknown"
 ```
-**Explanation:** Access nested dictionary values by chaining square brackets or `get()` methods. Using `get()` with empty dict as default prevents KeyError when intermediate keys don't exist.
+ Access nested dictionary values by chaining square brackets or `get()` methods. Using `get()` with empty dict as default prevents KeyError when intermediate keys don't exist.
 
 ### Updating Nested Dictionaries
 
@@ -260,7 +260,7 @@ students["alice"]["grades"]["english"] = 90
 # Add new student
 students["bob"] = {"age": 22, "grades": {"math": 78}}
 ```
-**Explanation:** You can add or modify nested dictionary values using multiple levels of square bracket notation.
+ You can add or modify nested dictionary values using multiple levels of square bracket notation.
 
 
 
@@ -284,7 +284,7 @@ students["bob"] = {"age": 22, "grades": {"math": 78}}
 student_list = ["Alice", 20, "A"]       # Less memory
 student_dict = {"name": "Alice", "age": 20, "grade": "A"}  # More memory but more readable
 ```
-**Explanation:** Dictionaries use more memory than lists because they store keys along with values and maintain a hash table structure. However, they provide much faster key-based access.
+ Dictionaries use more memory than lists because they store keys along with values and maintain a hash table structure. However, they provide much faster key-based access.
 
 
 

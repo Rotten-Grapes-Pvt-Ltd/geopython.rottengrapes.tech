@@ -29,12 +29,37 @@ nav:
     - Creating Functions : intro-to-python/functions.md
     - Using Modules : intro-to-python/modules.md
     - Debugging in Python : intro-to-python/debugging.md
+    - Object Oriented Programming : intro-to-python/oop.md
   - Advance Python:
-    - Introduction to Numpy : advance-python/numpy_intro.md
-    - List in Numpy : advance-python/numpy_creating_list.md
-    - Indexing in Numpy : advance-python/numpy_indexing.md
-    - Numpy reshaping : advance-python/numpy_reshaping.md
-    - Numpy Split : advance-python/numpy_split.md
+    - Numpy :
+      - Introduction to Numpy : advance-python/numpy/numpy_intro.md
+      - List in Numpy : advance-python/numpy/numpy_creating_list.md
+      - Indexing in Numpy : advance-python/numpy/numpy_indexing.md
+      - Numpy reshaping : advance-python/numpy/numpy_reshaping.md
+      - Numpy Split : advance-python/numpy/numpy_split.md
+    - Pandas :
+      - Introduction to Pandas : advance-python/pandas/pandas_intro.md
+      - Reading & writing data : advance-python/pandas/pandas_create_df.md
+      - Cleaning & transforming data : advance-python/pandas/pandas_cleaning.md
+      - Indexing & advanced selection: advance-python/pandas/pandas_indexing.md
+      - Group operations: advance-python/pandas/pandas_grouping.md
+      - Dealing with time series : advance-python/pandas/pandas_time_series.md
+    - Matplotlib : 
+        - Introduction : advance-python/matplotlib/introduction.md
+        - Basics of plots : advance-python/matplotlib/make_plots.md
+        - Customizing plots : advance-python/matplotlib/customize_plots.md
+        - Working with multiple plots : advance-python/matplotlib/multiple_plots.md
+        - Advanced Visualizations : advance-python/matplotlib/advanced_visualization.md
+      
+  - Vector Analysis: 
+      - Spatial Relations : vector-analysis/spatial_relations.md
+      - Creating GIS Data in Python from Scratch : vector-analysis/creating_gis_data.md
+      - Low Level Vector Access: vector-analysis/low_level_vector_access.md
+      - Accessing OSM data using OSMnx : vector-analysis/osmnx.md
+      - Attribute Query using Geopandas : vector-analysis/attribute_query.md
+      - Spatial Query using Geopandas : vector-analysis/spatial_operations.md
+      - Advance spatial operations : vector-analysis/advanced_spatial_operations.md
+      
 extra:
   social:
     - icon: fontawesome/brands/mastodon 
@@ -50,6 +75,9 @@ plugins:
   - tags
 
 markdown_extensions:
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - attr_list
   - md_in_html
   - pymdownx.emoji:
