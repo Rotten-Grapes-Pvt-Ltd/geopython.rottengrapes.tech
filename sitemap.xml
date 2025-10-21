@@ -2,74 +2,158 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://geopython.rottengrapes.tech/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
-         <loc>https://geopython.rottengrapes.tech/advance-python/numpy_creating_list/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <loc>https://geopython.rottengrapes.tech/advance-python/matplotlib/advanced_visualization/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
-         <loc>https://geopython.rottengrapes.tech/advance-python/numpy_indexing/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <loc>https://geopython.rottengrapes.tech/advance-python/matplotlib/customize_plots/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
-         <loc>https://geopython.rottengrapes.tech/advance-python/numpy_intro/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <loc>https://geopython.rottengrapes.tech/advance-python/matplotlib/introduction/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
-         <loc>https://geopython.rottengrapes.tech/advance-python/numpy_reshaping/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <loc>https://geopython.rottengrapes.tech/advance-python/matplotlib/make_plots/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
-         <loc>https://geopython.rottengrapes.tech/advance-python/numpy_split/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <loc>https://geopython.rottengrapes.tech/advance-python/matplotlib/multiple_plots/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/advance-python/numpy/numpy_creating_list/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/advance-python/numpy/numpy_indexing/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/advance-python/numpy/numpy_intro/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/advance-python/numpy/numpy_reshaping/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/advance-python/numpy/numpy_split/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/advance-python/pandas/pandas_cleaning/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/advance-python/pandas/pandas_create_df/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/advance-python/pandas/pandas_grouping/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/advance-python/pandas/pandas_indexing/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/advance-python/pandas/pandas_intro/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/advance-python/pandas/pandas_time_series/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/conditions/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/debugging/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/dictionary/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/functions/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/installation/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/intro-to-packages/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/list/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/loops/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/modules/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/intro-to-python/oop/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/sets-tuple/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/setup-env/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
     </url>
     <url>
          <loc>https://geopython.rottengrapes.tech/intro-to-python/variables/</loc>
-         <lastmod>2025-09-13</lastmod>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/vector-analysis/accessing_vector_data_online/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/vector-analysis/advanced_spatial_operations/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/vector-analysis/attribute_query/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/vector-analysis/creating_gis_data/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/vector-analysis/low_level_vector_access/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/vector-analysis/osmnx/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/vector-analysis/spatial_operations/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/vector-analysis/spatial_operations_in_geopandas%20%281%29/</loc>
+         <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+         <loc>https://geopython.rottengrapes.tech/vector-analysis/spatial_relations/</loc>
+         <lastmod>2025-10-21</lastmod>
     </url>
 </urlset>

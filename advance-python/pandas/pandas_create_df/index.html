@@ -1,0 +1,2210 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://geopython.rottengrapes.tech/advance-python/pandas/pandas_create_df/">
+      
+      
+        <link rel="prev" href="../pandas_intro/">
+      
+      
+        <link rel="next" href="../pandas_cleaning/">
+      
+      
+      <link rel="icon" href="../../../assets/images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Reading & writing data - Master GeoPython</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Reading & writing data - Master GeoPython" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://geopython.rottengrapes.tech/assets/images/social/advance-python/pandas/pandas_create_df.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://geopython.rottengrapes.tech/advance-python/pandas/pandas_create_df/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Reading & writing data - Master GeoPython" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://geopython.rottengrapes.tech/assets/images/social/advance-python/pandas/pandas_create_df.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="requirements" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#reading-writing-data-parsing-strategies" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Master GeoPython" class="md-header__button md-logo" aria-label="Master GeoPython" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.14 7.5A2.86 2.86 0 0 1 22 10.36v3.78A2.86 2.86 0 0 1 19.14 17H12c0 .39.32.96.71.96H17v1.68a2.86 2.86 0 0 1-2.86 2.86H9.86A2.86 2.86 0 0 1 7 19.64v-3.75a2.85 2.85 0 0 1 2.86-2.85h5.25a2.85 2.85 0 0 0 2.85-2.86V7.5zm-4.28 11.79c-.4 0-.72.3-.72.89s.32.71.72.71a.71.71 0 0 0 .71-.71c0-.59-.32-.89-.71-.89m-10-1.79A2.86 2.86 0 0 1 2 14.64v-3.78A2.86 2.86 0 0 1 4.86 8H12c0-.39-.32-.96-.71-.96H7V5.36A2.86 2.86 0 0 1 9.86 2.5h4.28A2.86 2.86 0 0 1 17 5.36v3.75a2.85 2.85 0 0 1-2.86 2.85H8.89a2.85 2.85 0 0 0-2.85 2.86v2.68zM9.14 5.71c.4 0 .72-.3.72-.89s-.32-.71-.72-.71c-.39 0-.71.12-.71.71s.32.89.71.89"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Master GeoPython
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reading & writing data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Master GeoPython" class="md-nav__button md-logo" aria-label="Master GeoPython" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.14 7.5A2.86 2.86 0 0 1 22 10.36v3.78A2.86 2.86 0 0 1 19.14 17H12c0 .39.32.96.71.96H17v1.68a2.86 2.86 0 0 1-2.86 2.86H9.86A2.86 2.86 0 0 1 7 19.64v-3.75a2.85 2.85 0 0 1 2.86-2.85h5.25a2.85 2.85 0 0 0 2.85-2.86V7.5zm-4.28 11.79c-.4 0-.72.3-.72.89s.32.71.72.71a.71.71 0 0 0 .71-.71c0-.59-.32-.89-.71-.89m-10-1.79A2.86 2.86 0 0 1 2 14.64v-3.78A2.86 2.86 0 0 1 4.86 8H12c0-.39-.32-.96-.71-.96H7V5.36A2.86 2.86 0 0 1 9.86 2.5h4.28A2.86 2.86 0 0 1 17 5.36v3.75a2.85 2.85 0 0 1-2.86 2.85H8.89a2.85 2.85 0 0 0-2.85 2.86v2.68zM9.14 5.71c.4 0 .72-.3.72-.89s-.32-.71-.72-.71c-.39 0-.71.12-.71.71s.32.89.71.89"/></svg>
+
+    </a>
+    Master GeoPython
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Master GeoPython
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/setup-env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup Python Environment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/intro-to-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python Packages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Set Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Making List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/sets-tuple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sets and Tuple
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/dictionary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Making Dictionary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loop through data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Conditions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/debugging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Debugging in Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro-to-python/oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object Oriented Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Advance Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advance Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Numpy
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Numpy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numpy/numpy_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Numpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numpy/numpy_creating_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    List in Numpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numpy/numpy_indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Indexing in Numpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numpy/numpy_reshaping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Numpy reshaping
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numpy/numpy_split/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Numpy Split
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pandas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Pandas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction to Pandas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Reading & writing data
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reading & writing data
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-format-guide-when-to-use-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick format guide — when to use what
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-csv-files-pdread_csv-the-essential-knobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading CSV files (pd.read_csv) — the essential knobs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-date-parsing-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical date parsing strategies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encodings-boms-and-stray-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encodings, BOMs, and stray characters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-excel-files-read_excel-practical-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Excel files (read_excel) — practical notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-and-nested-data-read_json-and-json_normalize" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON and nested data: read_json and json_normalize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parquet-and-feather-fast-columnar-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parquet and Feather — fast columnar formats
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-databases-and-read_sql-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL databases and read_sql patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-from-web-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading from web APIs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-very-large-files-streaming-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with very large files — streaming patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-data-to_csv-to_parquet-to_sql-good-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing data (to_csv, to_parquet, to_sql) — good defaults
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-parsing-errors-symptoms-and-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common parsing errors, symptoms and fixes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-recipes-copy-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-step recipes (copy &amp; run)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-practical-friendly-to-non-programmers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercises (practical, friendly to non-programmers)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-checklist-keep-this-handy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting checklist (keep this handy)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas_cleaning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cleaning & transforming data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas_indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Indexing & advanced selection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas_grouping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Group operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas_time_series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dealing with time series
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Matplotlib
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Matplotlib
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../matplotlib/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../matplotlib/make_plots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basics of plots
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../matplotlib/customize_plots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Customizing plots
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../matplotlib/multiple_plots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working with multiple plots
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../matplotlib/advanced_visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Visualizations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vector Analysis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Vector Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vector-analysis/spatial_relations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spatial Relations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vector-analysis/creating_gis_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating GIS Data in Python from Scratch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vector-analysis/low_level_vector_access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Low Level Vector Access
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vector-analysis/osmnx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accessing OSM data using OSMnx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vector-analysis/attribute_query/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Attribute Query using Geopandas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vector-analysis/spatial_operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spatial Query using Geopandas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vector-analysis/advanced_spatial_operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advance spatial operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-format-guide-when-to-use-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick format guide — when to use what
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-csv-files-pdread_csv-the-essential-knobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading CSV files (pd.read_csv) — the essential knobs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-date-parsing-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical date parsing strategies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encodings-boms-and-stray-characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encodings, BOMs, and stray characters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-excel-files-read_excel-practical-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading Excel files (read_excel) — practical notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#json-and-nested-data-read_json-and-json_normalize" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON and nested data: read_json and json_normalize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parquet-and-feather-fast-columnar-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parquet and Feather — fast columnar formats
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-databases-and-read_sql-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL databases and read_sql patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-from-web-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading from web APIs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-very-large-files-streaming-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with very large files — streaming patterns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-data-to_csv-to_parquet-to_sql-good-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing data (to_csv, to_parquet, to_sql) — good defaults
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-parsing-errors-symptoms-and-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common parsing errors, symptoms and fixes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-recipes-copy-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-step recipes (copy &amp; run)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises-practical-friendly-to-non-programmers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercises (practical, friendly to non-programmers)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-checklist-keep-this-handy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting checklist (keep this handy)
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="reading-writing-data-parsing-strategies">Reading &amp; Writing Data; Parsing Strategies</h1>
+<h2 id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Understand the common file formats used for tabular data and their trade-offs.</li>
+<li>Load data from CSV, Excel, JSON, SQL, Parquet, compressed files, and web APIs into Pandas safely and efficiently.</li>
+<li>Parse dates, numeric formats, encodings, and missing values correctly.</li>
+<li>Read very large files without running out of memory (chunking, iterators, streaming).</li>
+<li>Write DataFrames back to disk or databases using sensible defaults with attention to reproducibility and performance.</li>
+<li>Diagnose and fix common parsing errors and messy input files.</li>
+</ul>
+<h2 id="quick-format-guide-when-to-use-what">Quick format guide — when to use what</h2>
+<ul>
+<li>
+<p><strong>CSV / TSV</strong></p>
+<ul>
+<li>Human‑readable, very common. Good for small→medium files and easy sharing.</li>
+<li>Slower to parse and larger on disk than binary formats; fields may require careful parsing (quotes, separators).</li>
+</ul>
+</li>
+<li>
+<p><strong>Excel (<code>.xls</code> / <code>.xlsx</code>)</strong></p>
+<ul>
+<li>Business friendly (multiple sheets, formatting). Good for small→medium ad‑hoc datasets.</li>
+<li>Slower to parse programmatically and may include merged cells or headers that need cleanup.</li>
+</ul>
+</li>
+<li>
+<p><strong>JSON / NDJSON</strong></p>
+<ul>
+<li>Flexible for nested or hierarchical data and APIs. Use newline‑delimited JSON (NDJSON) for large streams.</li>
+<li>
+<p><strong>Parquet / Feather</strong></p>
+</li>
+<li>
+<p>Columnar binary formats — fast I/O, compression, and efficient for analytics. Prefer for large datasets and repeated reads.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>SQL databases</strong></p>
+<ul>
+<li>Best for data that needs indexing, concurrent access, or partial queries. Pull only what you need with SQL.</li>
+</ul>
+</li>
+</ul>
+<h2 id="reading-csv-files-pdread_csv-the-essential-knobs">Reading CSV files (<code>pd.read_csv</code>) — the essential knobs</h2>
+<ul>
+<li><strong>Basic usage</strong></li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Important options and why they matter</strong></p>
+<ul>
+<li><code>sep</code> / <code>delimiter</code> — set the column separator (<code>,</code>, <code>\t</code>, <code>;</code>). Wrong <code>sep</code> means all data ends up in one column.</li>
+<li><code>header</code> / <code>names</code> — control column names when your file has no header or has extra header rows.</li>
+<li><code>dtype</code> — pass a dict like <code>{'id': 'int32', 'amount': 'float32'}</code> to avoid slow type inference and reduce memory.</li>
+<li><code>parse_dates</code> — parse date columns into <code>datetime64[ns]</code> so you can slice, resample, and extract date parts.</li>
+<li><code>usecols</code> — only read needed columns to save memory and time.</li>
+<li><code>na_values</code> — tell Pandas which strings should be treated as missing (e.g., <code>['', 'NA', 'n/a', '-']</code>).</li>
+<li><code>encoding</code> / <code>encoding_errors</code> — fix Unicode problems like <code>UnicodeDecodeError</code> (try <code>latin-1</code> or <code>cp1252</code>).</li>
+<li><code>engine='c'</code> or <code>engine='python'</code> — the C engine is much faster; use <code>python</code> for complex parsing options like unusual quoting or regex separators.</li>
+<li><code>chunksize</code> — read in row‑based chunks (returns an iterator of DataFrames) for streaming large files.</li>
+<li><code>compression</code> — <code>'gzip'</code>, <code>'bz2'</code>, <code>'xz'</code>, or <code>'zip'</code> when reading compressed files.</li>
+<li><code>low_memory</code> — if True (default) Pandas may infer dtypes in chunks and result in mixed dtypes. Set <code>low_memory=False</code> when you plan to supply <code>dtype</code> or want single‑pass inference.</li>
+</ul>
+</li>
+<li>
+<p><strong>Practical examples</strong></p>
+</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># read only useful columns, parse a date, and force types</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="s1">&#39;sales.csv&#39;</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;order_id&#39;</span><span class="p">,</span><span class="s1">&#39;order_date&#39;</span><span class="p">,</span><span class="s1">&#39;amount&#39;</span><span class="p">,</span><span class="s1">&#39;country&#39;</span><span class="p">],</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;order_id&#39;</span><span class="p">:</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="p">},</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;order_date&#39;</span><span class="p">]</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># read a tab separated file</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># read a gzipped CSV directly</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv.gz&#39;</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s1">&#39;gzip&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Tips for international number formats</strong></li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># numbers like &quot;1.234,56&quot; (dot thousands, comma decimal)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;euro.csv&#39;</span><span class="p">,</span> <span class="n">thousands</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Dealing with malformed rows</strong></p>
+<ul>
+<li>Use <code>on_bad_lines='skip'</code> (pandas &gt;= 1.3) to skip bad rows and inspect later.</li>
+<li>Use <code>engine='python'</code> and <code>error_bad_lines=False</code> for older pandas versions (deprecated keywords).</li>
+</ul>
+</li>
+</ul>
+<h2 id="practical-date-parsing-strategies">Practical date parsing strategies</h2>
+<ul>
+<li>
+<p><strong>Why parse dates</strong></p>
+<ul>
+<li>Converting strings to datetimes unlocks time‑aware operations: slicing by date, <code>resample</code>, <code>.dt</code> accessors, timezone handling.</li>
+</ul>
+</li>
+<li>
+<p><strong>Common approaches</strong></p>
+<ul>
+<li>Simple column: <code>parse_dates=['date_col']</code>.</li>
+<li>Multiple columns to combine: <code>parse_dates={'date': ['year','month','day']}</code> or combine after load with <code>pd.to_datetime</code>.</li>
+<li>Use <code>pd.to_datetime(df['col'], format='%Y-%m-%d')</code> when you know the exact format — it is much faster and more reliable.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ambiguous formats</strong></p>
+<ul>
+<li>Use <code>dayfirst=True</code> or <code>yearfirst=True</code> for ambiguous day/month parsing (e.g., <code>05/06/2020</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Large datasets</strong></p>
+<ul>
+<li>Read date columns as strings first (<code>dtype={'date_col': 'string'}</code>), then convert with <code>pd.to_datetime(..., format=...)</code> in a second pass when you can guarantee format and speed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="encodings-boms-and-stray-characters">Encodings, BOMs, and stray characters</h2>
+<ul>
+<li>
+<p><strong>Symptoms of encoding issues</strong></p>
+<ul>
+<li><code>UnicodeDecodeError</code> when reading.</li>
+<li>Strange characters like <code>Ã©</code> instead of <code>é</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fixes</strong></p>
+<ul>
+<li>Try <code>encoding='latin-1'</code> or <code>encoding='cp1252'</code> if <code>utf-8</code> fails.</li>
+<li>Use <code>encoding_errors='replace'</code> (pandas &gt;= 1.4) to replace invalid bytes.</li>
+<li>If file has a Byte Order Mark (BOM), <code>pd.read_csv</code> usually handles it; otherwise use <code>encoding='utf-8-sig'</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="reading-excel-files-read_excel-practical-notes">Reading Excel files (<code>read_excel</code>) — practical notes</h2>
+<ul>
+<li>Use <code>sheet_name</code> (<code>None</code> for all sheets) and <code>usecols</code> / <code>skiprows</code> to extract the table area you need.</li>
+<li>Excel files may contain merged cells and headers in multiple rows; inspect visually and use <code>skiprows</code> / <code>header</code> to pick the right row for column names.</li>
+<li>Excel reading is slower — for repeatable automated workflows, prefer converting to CSV or Parquet beforehand.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># read all sheets into a dict of DataFrames</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">all_sheets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;workbook.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="json-and-nested-data-read_json-and-json_normalize">JSON and nested data: <code>read_json</code> and <code>json_normalize</code></h2>
+<ul>
+<li><strong>NDJSON</strong> (newline delimited) is easy to stream: <code>pd.read_json('file.ndjson', lines=True)</code>.</li>
+<li>For nested JSON, use <code>pd.json_normalize</code> to flatten records:</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">json_normalize</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;nested.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">flat</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">record_path</span><span class="o">=</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;order_id&#39;</span><span class="p">,</span><span class="s1">&#39;customer&#39;</span><span class="p">])</span>
+</span></code></pre></div>
+<ul>
+<li>When consuming APIs, use <code>requests</code> to fetch JSON and normalize into a DataFrame.</li>
+</ul>
+<h2 id="parquet-and-feather-fast-columnar-formats">Parquet and Feather — fast columnar formats</h2>
+<ul>
+<li>
+<p><strong>Why use them</strong></p>
+<ul>
+<li>Faster read/write than CSV, smaller disk footprint due to compression, and better for analytics because they are columnar (you can read just the columns you need).</li>
+</ul>
+</li>
+<li>
+<p><strong>Usage</strong></p>
+</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s1">&#39;data.parquet&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s1">&#39;data.parquet&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Partitioning</strong></p>
+<ul>
+<li>When writing large datasets, partitioning by a column (e.g., <code>year=2020/ month=01/...</code>) can speed filters in downstream tools.</li>
+</ul>
+</li>
+</ul>
+<h2 id="sql-databases-and-read_sql-patterns">SQL databases and <code>read_sql</code> patterns</h2>
+<ul>
+<li>Use <code>sqlalchemy.create_engine</code> for a connection and let the database filter/aggregate data when possible.</li>
+<li>For very large tables, read with <code>chunksize</code> and process each chunk, or push heavy aggregation into SQL to avoid transferring massive raw tables.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_engine</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;postgresql://user:pass@host/db&#39;</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM big_table&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">process</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="reading-from-web-apis">Reading from web APIs</h2>
+<ul>
+<li>Fetch JSON with <code>requests</code>, handle pagination, and normalize responses into rows.</li>
+<li>Respect API rate limits and authentication.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.example.com/data&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">rows</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;results&#39;</span><span class="p">]</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="working-with-very-large-files-streaming-patterns">Working with very large files — streaming patterns</h2>
+<ul>
+<li>
+<p><strong>Chunked processing</strong></p>
+<ul>
+<li>Use <code>chunksize</code> in <code>read_csv</code> to iterate over the file and update aggregates, write partial results to disk, or populate a database. Never build a giant list of chunks in memory.</li>
+</ul>
+</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">agg</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;big.csv&#39;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">200_000</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span><span class="s1">&#39;amount&#39;</span><span class="p">]):</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">s</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;country&#39;</span><span class="p">)[</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="n">agg</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">agg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">v</span>
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Memory tricks</strong></p>
+<ul>
+<li>Use <code>usecols</code> to drop unnecessary columns.</li>
+<li>Supply <code>dtype</code> to prevent mixed types and <code>object</code> columns.</li>
+<li>Convert repeated string columns to <code>category</code> immediately: <code>chunk['col'] = chunk['col'].astype('category')</code>.</li>
+<li>If you need random access or complex analytics on huge datasets, consider using a database, Dask, or reading Parquet with partitioned layout instead of a single giant CSV.</li>
+</ul>
+</li>
+</ul>
+<h2 id="writing-data-to_csv-to_parquet-to_sql-good-defaults">Writing data (<code>to_csv</code>, <code>to_parquet</code>, <code>to_sql</code>) — good defaults</h2>
+<ul>
+<li>
+<p><strong>CSV</strong></p>
+<ul>
+<li><code>df.to_csv('out.csv', index=False)</code> — avoid writing the index unless you need it.</li>
+<li>Use <code>compression='gzip'</code> to save space: <code>df.to_csv('out.csv.gz', compression='gzip', index=False)</code>.</li>
+<li>
+<p><strong>Parquet</strong></p>
+</li>
+<li>
+<p><code>df.to_parquet('out.parquet', index=False)</code> — preserve dtypes and use compression.</p>
+</li>
+<li>
+<p><strong>SQL</strong></p>
+</li>
+<li>
+<p>Use <code>df.to_sql('table', engine, if_exists='append', index=False)</code> to append; for large writes consider batching and disabling indexes during load for speed.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="common-parsing-errors-symptoms-and-fixes">Common parsing errors, symptoms and fixes</h2>
+<ul>
+<li>
+<p><strong>ParserError / tokenizing errors</strong></p>
+</li>
+<li>
+<p>Symptom: <code>Error tokenizing data</code> or <code>EOF inside string</code>.</p>
+<ul>
+<li>Cause: inconsistent quoting, embedded newlines, bad separators.</li>
+<li>Fixes: try <code>engine='python'</code> with <code>sep</code> and <code>quoting=csv.QUOTE_NONE</code>, or open file and inspect bad lines; use <code>on_bad_lines='skip'</code> to skip and log problematic rows.</li>
+</ul>
+</li>
+<li>
+<p><strong>UnicodeDecodeError</strong></p>
+<ul>
+<li>Symptom: decoding error when reading file.</li>
+<li>Fix: try <code>encoding='latin-1'</code> or <code>encoding='utf-8-sig'</code> (handles BOM); set <code>encoding_errors='replace'</code> to avoid failures.</li>
+</ul>
+</li>
+<li>
+<p><strong>Mixed dtypes in column</strong></p>
+<ul>
+<li>Symptom: column shows <code>object</code> dtype or warnings about mixed types.</li>
+<li>Fix: pass <code>dtype</code> or <code>converters</code> to coerce types at read time, or sanitize values after reading and convert types explicitly.</li>
+</ul>
+</li>
+<li>
+<p><strong>Dates read as strings or <code>NaT</code></strong></p>
+<ul>
+<li>Symptom: dates are strings or missing after read.</li>
+<li>Fix: supply <code>parse_dates</code> or convert post-read with <code>pd.to_datetime(..., format=...)</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Large memory usage</strong></p>
+<ul>
+<li>Symptom: your machine runs out of RAM or swaps.</li>
+<li>Fix: use <code>usecols</code>, <code>dtype</code> optimization, read with <code>chunksize</code>, or switch to Parquet / database / Dask.</li>
+</ul>
+</li>
+</ul>
+<h2 id="step-by-step-recipes-copy-run">Step-by-step recipes (copy &amp; run)</h2>
+<ul>
+<li><strong>Inspect the first few lines before loading</strong></li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># fast preview using Python (no Pandas)</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;messy.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Load a messy CSV with tuned options</strong></li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="s1">&#39;messy.csv&#39;</span><span class="p">,</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="n">thousands</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin-1&#39;</span><span class="p">,</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;order_date&#39;</span><span class="p">],</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="s1">&#39;n/a&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">]</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">)</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Stream process and write partial aggregates</strong></li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">out_path</span> <span class="o">=</span> <span class="s1">&#39;totals_by_region.csv&#39;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">first_write</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;big_sales.csv&#39;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">100_000</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">,</span><span class="s1">&#39;amount&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;region&#39;</span><span class="p">:</span><span class="s1">&#39;category&#39;</span><span class="p">,</span><span class="s1">&#39;amount&#39;</span><span class="p">:</span><span class="s1">&#39;float32&#39;</span><span class="p">}):</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">sums</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;region&#39;</span><span class="p">)[</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">sums</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">first_write</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="n">first_write</span> <span class="o">=</span> <span class="kc">False</span>
+</span></code></pre></div>
+<h2 id="exercises-practical-friendly-to-non-programmers">Exercises (practical, friendly to non-programmers)</h2>
+<ul>
+<li>Open a sample CSV in a plain text editor and identify: the delimiter, header row, and examples of missing values.</li>
+<li>Load a CSV with <code>pd.read_csv('file.csv', nrows=100)</code> to inspect types, then reload with <code>dtype</code> and <code>usecols</code> to reduce memory. Compare <code>df.memory_usage(deep=True)</code> before and after.</li>
+<li>Read an Excel workbook with multiple sheets using <code>sheet_name=None</code> and explore the dictionary of DataFrames.</li>
+<li>Read a large CSV using <code>chunksize=50000</code> and compute the total of a numeric column using chunked aggregation.</li>
+</ul>
+<h2 id="troubleshooting-checklist-keep-this-handy">Troubleshooting checklist (keep this handy)</h2>
+<ul>
+<li>Inspect the top 20 lines of the file manually when parsing fails.</li>
+<li>Try <code>encoding='latin-1'</code> or <code>encoding='utf-8-sig'</code> for Unicode errors.</li>
+<li>Use <code>usecols</code> to isolate problematic columns and save memory.</li>
+<li>If parser fails, try <code>engine='python'</code> and <code>on_bad_lines='skip'</code> to continue while you inspect bad lines.</li>
+<li>For performance: sample the file with <code>nrows=1000</code>, infer good <code>dtype</code> mappings, then reload full data with <code>dtype</code> specified.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../pandas_intro/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction to Pandas">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Introduction to Pandas
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../pandas_cleaning/" class="md-footer__link md-footer__link--next" aria-label="Next: Cleaning &amp; transforming data">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Cleaning & transforming data
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2020 - 2026 Rotten Grapes Private Limited
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+      
+    
+    
+    
+      
+      
+    
+    <a href="https://fosstodon.org/@squidfunk" target="_blank" rel="noopener me" title="fosstodon.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/squidfunk/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.footer", "content.code.copy", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
