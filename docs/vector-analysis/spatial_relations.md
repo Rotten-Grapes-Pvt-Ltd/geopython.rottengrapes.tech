@@ -19,7 +19,7 @@
 - **Use Case**: Find urban areas not impacted by flooding zones.
 
 
-![Disjoint](/assets/images/spatial/Disjoint.png)
+![Disjoint](assets/images/spatial/Disjoint.png)
 
 ---
 
@@ -28,7 +28,7 @@
 - **Explanation**: Geometries touch at boundaries but do not overlap.
 - **Use Case**: Identify villages that touch forest boundaries.
 
-![Touch](/assets/images/spatial/touching.png)
+![Touch](assets/images/spatial/touching.png)
 
 ---
 
@@ -37,7 +37,7 @@
 - **Explanation**: Any spatial overlap between features.
 - **Use Case**: Roads that intersect flood zones.
 
-![Intersect](/assets/images/spatial/intersect.png)
+![Intersect](assets/images/spatial/intersect.png)
 ---
 
 ## 📌 Within / Contains
@@ -47,7 +47,7 @@
   - B contains A: Same as above, reversed.
 - **Use Case**: Lakes within administrative boundaries.
   
-![Within](/assets/images/spatial/Within.png)
+![Within](assets/images/spatial/Within.png)
 
 
 ---
@@ -57,7 +57,7 @@
 - **Explanation**: Features partially overlap but neither completely contains the other.
 - **Use Case**: Identify conflict zones between mining and wildlife areas.
 
-![Overlaps](/assets/images/spatial/Overlaps.png)
+![Overlaps](assets/images/spatial/Overlaps.png)
 
 ---
 
@@ -66,7 +66,7 @@
 - **Explanation**: Features cross each other like an 'X'.
 - **Use Case**: Rivers crossing roads or railways.
 
-![Crosses](/assets/images/spatial/Crosses.png)
+![Crosses](assets/images/spatial/Crosses.png)
 
 ---
 
@@ -76,7 +76,7 @@
 - **Use Case**: Validate duplicate parcel entries.
 
 
-![Equals](/assets/images/spatial/Equals.png)
+![Equals](assets/images/spatial/Equals.png)
 
 
 
@@ -92,7 +92,7 @@
 - **Use Case**: Identify schools within 500m of highways.
 
 
-![Buffer](/assets/images/spatial/Buffer.png)
+![Buffer](assets/images/spatial/Buffer.png)
 
 ---
 
@@ -101,7 +101,7 @@
 - **Explanation**: Extracts shared area between layers.
 - **Use Case**: Areas where agriculture and flood zones overlap.
 
-![Intersection](/assets/images/spatial/Intersection.png)
+![Intersection](assets/images/spatial/Intersection.png)
 
 ---
 
@@ -110,7 +110,7 @@
 - **Explanation**: Merges geometries into one combined shape.
 - **Use Case**: Combine two adjacent conservation zones.
 
-![Union](/assets/images/spatial/Union.png)
+![Union](assets/images/spatial/Union.png)
 
 ---
 
@@ -119,7 +119,7 @@
 - **Explanation**: Removes the area of B from A.
 - **Use Case**: Exclude roads from construction zones.
 
-![Difference](/assets/images/spatial/Difference.png)
+![Difference](assets/images/spatial/Difference.png)
 
 ---
 
@@ -128,7 +128,7 @@
 - **Explanation**: Returns areas unique to each geometry.
 - **Use Case**: Change detection between two land-use years.
 
-![Symmetric Difference](/assets/images/spatial/SymmetricDifference.png)
+![Symmetric Difference](assets/images/spatial/SymmetricDifference.png)
 
 ---
 
@@ -137,7 +137,7 @@
 - **Explanation**: Finds the geometric center of a shape.
 - **Use Case**: Label location of administrative zones.
 
-![Centroid](/assets/images/spatial/Centroid.png)
+![Centroid](assets/images/spatial/Centroid.png)
 
 
 ---
@@ -147,7 +147,7 @@
 - **Explanation**: Smallest convex polygon enclosing a geometry.
 - **Use Case**: Estimate range of animal movement from GPS points.
 
-![Convex Hull](/assets/images/spatial/ConvexHull.png)
+![Convex Hull](assets/images/spatial/ConvexHull.png)
 
 ---
 
@@ -156,7 +156,7 @@
 - **Explanation**: Minimum bounding rectangle that encloses a feature.
 - **Use Case**: Indexing features for faster processing.
 
-![Envelope](/assets/images/spatial/Envelope.png)
+![Envelope](assets/images/spatial/Envelope.png)
 
 ---
 
@@ -166,7 +166,7 @@
 - **Use Case**: Create simplified boundaries for web maps.
 
 
-![Simplify](/assets/images/spatial/Simplify.png)
+![Simplify](assets/images/spatial/Simplify.png)
 
 ---
 
@@ -175,7 +175,7 @@
 - **Explanation**: Adds vertices at regular intervals along geometry.
 - **Use Case**: Improve accuracy for projection transformations.
 
-![Densify](/assets/images/spatial/Densify.png)
+![Densify](assets/images/spatial/Densify.png)
 
 ---
 
@@ -184,7 +184,7 @@
 - **Explanation**: Divides geometry using a line or another polygon.
 - **Use Case**: Split a district into zones using a river.
 
-![Split](/assets/images/spatial/Split.png)
+![Split](assets/images/spatial/Split.png)
 
 ---
 
@@ -193,7 +193,7 @@
 - **Explanation**: Cuts a geometry using another as a mask.
 - **Use Case**: Clip land-use data to a city boundary.
 
-![Clip](/assets/images/spatial/Clip.png)
+![Clip](assets/images/spatial/Clip.png)
 
 ---
 
