@@ -38,6 +38,7 @@
 * Spot-check problem rows
 
     * `df[df['col'].isna()].sample(10)` and `df[df['col'].astype(str).str.len()>100]`
+    * `df[df.isna().any(axis=1)]` get all NA values 
 
 **Rule of thumb**: never clean blindly — inspect, hypothesize why a problem exists, then apply a fix and re‑check.
 

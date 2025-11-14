@@ -21,10 +21,12 @@ Every vector dataset (e.g., a Shapefile) has a **schema** — a definition of it
 
 ### Reading a Schema
 
+
+
 ```python
 import fiona
 
-with fiona.open("data/roads.shp", "r") as src:
+with fiona.open("populated_places/ne_10m_populated_places_simple.shp", "r") as src:
     print(src.schema)
     print(src.crs)
     print(src.driver)
