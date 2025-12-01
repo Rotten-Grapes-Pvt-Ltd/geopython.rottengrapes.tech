@@ -59,6 +59,18 @@ nav:
       - Attribute Query using Geopandas : vector-analysis/attribute_query.md
       - Spatial Query using Geopandas : vector-analysis/spatial_operations.md
       - Advance spatial operations : vector-analysis/advanced_spatial_operations.md
+  - Raster Analysis :
+    - Introduction to Raster Data : raster-analysis/introduction_to_raster_data.md
+    - Reading Raster Files in Python : raster-analysis/reading_raster_files.md
+    - Understanding Raster Geometry and CRS : raster-analysis/understanding_raster_geometry_crs.md
+    - Raster Math and Band Operations : raster-analysis/raster_math_and_band_operations.md
+    - Clipping and Masking Rasters : raster-analysis/clipping_and_masking_rasters.md
+    - Resampling, Reprojecting, and Mosaicking : raster-analysis/resampling_reprojecting_mosaicking.md
+    - Raster Zonal Statistics : raster-analysis/raster_zonal_statistics.md
+    - Terrain and Elevation Analysis : raster-analysis/terrain_elevation_analysis.md
+    - Working with Time-Series Raster Data : raster-analysis/working_with_timeseries_raster_data.md
+    - Reading from Cloud and Web Sources : raster-analysis/reading_from_cloud_and_web_sources.md
+    - Automating Raster Workflows : raster-analysis/automating_raster_workflows.md
       
 extra:
   social:
